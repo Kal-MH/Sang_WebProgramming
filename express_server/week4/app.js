@@ -11,14 +11,13 @@ var app = express();
 
 
 
-app.use("/public", Static(path.join(__dirname, "public")));
+app.use("/public", Static(path.join(__dirname, "../public")));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
 var router = express.Router();
 router.route("/process/login").post(function(req, res){
-    console.log(req.params.name)
     res.send("id: " + req.body.id + "password : " + req.body.password);
 })
 router.route("/process/login").get(function(req, res){
